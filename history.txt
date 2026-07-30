@@ -1,0 +1,47 @@
+18 bits token
+
+UART : 100 Mhz
+MPU : 150 Mhz
+DMA : 200 Mhz (400 will fail)
+
+
+
+TX RX 均有通過 simulation
+目前只有燒盡 RX 端進FPGA做測試
+
+
+
+
+Still fail in BRAM
+vcu128 通過 python rx_test.py 在fpga上測試
+rx_wrapper_dbg.sv 與 uart_dbg.sv 能夠過fpga測試
+
+
+01_run 與 uart_sim.sv 能進行vcs模擬
+
+
+:
+
+測試在新的板子
+並且
+
+
+vcu128:
+增加pipe在register MUX
+v20: add pipeline in TOKEN_REGISTER and fix +5'd32
+
+FIX regeister to same as 柏豪
+Pass All unit test
+CDC pass
+RX Pass FPGA 
+
+
+FIFO add
+TX通過VCS模擬
+TX FPGA PASS
+可以傳輸 tx 測資到python gui
+
+
+
+RX is Finish
+TX Finish

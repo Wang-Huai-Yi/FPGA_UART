@@ -1,0 +1,1 @@
+vcs -R -full64 -f uart_script.f +define +vcs+fsdbon | tee uart.log
