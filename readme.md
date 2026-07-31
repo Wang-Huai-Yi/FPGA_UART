@@ -19,6 +19,30 @@
 
 ---
 
+## External GUI Custom Parameters
+
+外部 Python GUI 會透過 UART 傳送特定的 **18-bit 自訂控制 ID**，RTL 會根據這些 ID 執行對應操作，例如開始接收 Token、結束 Token 傳輸、重設系統或修改 Max Sequence Length。
+
+```verilog
+parameter TOKENS_START_IDS                  = 18'h3FFFE;
+parameter TOKENS_END_IDS                    = 18'h3FFFF;
+parameter RESET_IDS                         = 18'h3FFFA;
+parameter CHANGE_MAXSEQUENCE_START_IDS      = 18'h3FFFB;
+parameter CHANGE_MAXSEQUENCE_END_IDS        = 18'h3FFFC;
+```
+
+| Parameter                      |         預設值 | 功能                            |
+| ------------------------------ | ----------: | ----------------------------- |
+| `RESET_IDS`                    | `18'h3FFFA` | 清除目前接收狀態與 Prompt Token 計數     |
+| `CHANGE_MAXSEQUENCE_START_IDS` | `18'h3FFFB` | 開始設定 Max Sequence Length      |
+| `CHANGE_MAXSEQUENCE_END_IDS`   | `18'h3FFFC` | 結束 Max Sequence Length 設定     |
+| `TOKENS_START_IDS`             | `18'h3FFFE` | 開始接收 Prompt Token             |
+| `TOKENS_END_IDS`               | `18'h3FFFF` | 結束 Prompt Token 傳輸並開始輸出 Token |
+
+
+
+---
+
 ## Verilog Define Setting
 
 請根據使用情境設定對應的 Verilog define：
