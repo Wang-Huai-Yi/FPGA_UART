@@ -1,4 +1,5 @@
 
+uart_dbg_v2.sv 新增 o_prompt_counter_valid ，尚未完整驗證，只有看波形
 ---
 
 # UART + TX RX Register Wrapper README
@@ -104,7 +105,7 @@ parameter CHANGE_MAXSEQUENCE_END_IDS        = 18'h3FFFC;
 * `o_max_sequence_buffer[10:0]` : max sequence length
 * `o_prompt_counter[10:0]` : received token count
 * `o_custom_reset` : custom reset (currently unused)
-
+* `o_prompt_counter_valid` : valid signal for received token count, pull up in the last cycle of prompt_ids, only exist in uart_dbg_v2.sv
 ---
 
 ## CDC FIFO (Required Files)
